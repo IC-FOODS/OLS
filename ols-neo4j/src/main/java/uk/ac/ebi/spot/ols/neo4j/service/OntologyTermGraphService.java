@@ -5,15 +5,11 @@ import org.neo4j.graphdb.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import uk.ac.ebi.spot.ols.neo4j.model.Individual;
-import uk.ac.ebi.spot.ols.neo4j.model.Related;
 import uk.ac.ebi.spot.ols.neo4j.model.Term;
 import uk.ac.ebi.spot.ols.neo4j.repository.OntologyTermRepository;
 
-import java.io.IOException;
 import java.util.*;
 
 /**
@@ -35,7 +31,8 @@ public class OntologyTermGraphService {
             "WHERE n.ontology_name = {0} AND n.iri = {1}\n"+
             "UNWIND nodes(path) as p\n" +
             "UNWIND rels(path) as r1\n" +
-            "RETURN {nodes: collect( distinct {iri: p.iri, label: p.label})[0..200], edges: collect (distinct {source: startNode(r1).iri, target: endNode(r1).iri, label: r1.label, uri: r1.uri}  )[0..200]} as result";
+            "RETURN {nodes: collect( distinct {iri: p.iri, label: p.label})[0..200], " +
+            "edges: collect (distinct {source: startNode(r1).iri, target: endNode(r1).iri, label: r1.label, uri: r1.uri}  )[0..200]} as result";
 
 
     String relatedFromQuery =  "MATCH (x)-[r:Related]->(n:Class) WHERE n.ontology_name = {0} AND n.iri = {1} RETURN r.label as relation, collect( {iri: x.iri, label: x.label})[0..99] as terms limit 100";
@@ -49,7 +46,6 @@ public class OntologyTermGraphService {
     }
 
 
-    @Transactional
     public Object getGraphJson(String ontologyName, String iri, int distance) {
 
         Map<String, Object> paramt = new HashMap<>();
@@ -79,6 +75,22 @@ public class OntologyTermGraphService {
         return termRepository.findAllByOboId(oboId, pageable);
     }
 
+    public Page<Term> findAllByIsDefiningOntology(Pageable pageable) {
+        return termRepository.findAllByIsDefiningOntology(pageable);
+    }
+
+    public Page<Term> findAllByIriAndIsDefiningOntology(String iri, Pageable pageable) {
+        return termRepository.findAllByIriAndIsDefiningOntology(iri, pageable);
+    }
+
+    public Page<Term> findAllByShortFormAndIsDefiningOntology(String shortForm, Pageable pageable) {
+        return termRepository.findAllByShortFormAndIsDefiningOntology(shortForm, pageable);
+    }
+
+    public Page<Term> findAllByOboIdAndIsDefiningOntology(String oboId, Pageable pageable) {
+        return termRepository.findAllByOboIdAndIsDefiningOntology(oboId, pageable);
+    }    
+    
     public Page<Term> findAllByOntology(String ontologyId, Pageable pageable) {
         return termRepository.findAllByOntology(ontologyId, pageable);
     }
@@ -123,7 +135,6 @@ public class OntologyTermGraphService {
         return termRepository.getRelated(ontologyId, iri, relation, pageable);
     }
 
-    @Transactional
     public Map<String, Collection<Map<String, String>>> getRelatedFrom(String ontologyId, String iri) {
         Map<String, Object> paramt = new HashMap<>();
         paramt.put("0", ontologyId);
@@ -140,7 +151,6 @@ public class OntologyTermGraphService {
         return relatedFromMap;
     }
 
-    @Transactional
     public Collection<Map<String, String>> getOntologyUsage (String iri) {
         Map<String, Object> paramt = new HashMap<>();
         paramt.put("0", iri);
@@ -164,6 +174,14 @@ public class OntologyTermGraphService {
 
     public Page<Term> getRoots(String ontologyId, boolean includeObsoletes, Pageable pageable) {
         return termRepository.getRoots(ontologyId, includeObsoletes, pageable);
+    }
+
+    public Page<Term> getPreferredRootTerms(String ontologyId, boolean includeObsoletes, Pageable pageable) {
+        return termRepository.getPreferredRootTerms(ontologyId, includeObsoletes, pageable);
+    }
+
+    public long getPreferredRootTermCount(String ontologyId, boolean includeObsoletes) {
+        return termRepository.getPreferredRootTermCount(ontologyId, includeObsoletes);
     }
 
     public Page<Individual> getInstances(String ontologyId, String iri, Pageable pageable) {

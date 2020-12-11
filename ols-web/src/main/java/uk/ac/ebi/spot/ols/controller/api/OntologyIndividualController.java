@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.data.web.PagedResourcesAssembler;
+import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.hateoas.Resource;
 import org.springframework.http.HttpEntity;
@@ -21,6 +22,7 @@ import org.springframework.web.util.UriUtils;
 import uk.ac.ebi.spot.ols.neo4j.model.Individual;
 import uk.ac.ebi.spot.ols.neo4j.model.Property;
 import uk.ac.ebi.spot.ols.neo4j.model.Term;
+import uk.ac.ebi.spot.ols.neo4j.service.IndividualJsTreeBuilder;
 import uk.ac.ebi.spot.ols.neo4j.service.JsTreeBuilder;
 import uk.ac.ebi.spot.ols.neo4j.service.OntologyIndividualService;
 
@@ -47,9 +49,9 @@ public class OntologyIndividualController {
     TermAssembler termAssembler;
 
     @Autowired
-    JsTreeBuilder jsTreeBuilder;
+    IndividualJsTreeBuilder jsTreeBuilder;
 
-    @RequestMapping(path = "/{onto}/individuals", produces = {MediaType.APPLICATION_JSON_VALUE}, method = RequestMethod.GET)
+    @RequestMapping(path = "/{onto}/individuals", produces = {MediaType.APPLICATION_JSON_VALUE, MediaTypes.HAL_JSON_VALUE}, method = RequestMethod.GET)
     HttpEntity<PagedResources<Individual>> getAllIndividualsByOntology(
             @PathVariable("onto") String ontologyId,
             @RequestParam(value = "iri", required = false) String iri,
@@ -83,7 +85,7 @@ public class OntologyIndividualController {
         return new ResponseEntity<>(assembler.toResource(terms, individualAssembler), HttpStatus.OK);
     }
 
-    @RequestMapping(path = "/{onto}/individuals/{id}", produces = {MediaType.APPLICATION_JSON_VALUE}, method = RequestMethod.GET)
+    @RequestMapping(path = "/{onto}/individuals/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaTypes.HAL_JSON_VALUE}, method = RequestMethod.GET)
     HttpEntity<Resource<Individual>> getIndividual(@PathVariable("onto") String ontologyId, @PathVariable("id") String termId) throws ResourceNotFoundException {
         ontologyId = ontologyId.toLowerCase();
 
@@ -96,7 +98,7 @@ public class OntologyIndividualController {
         }
     }
 
-    @RequestMapping(path = "/{onto}/individuals/{id}/types", produces = {MediaType.APPLICATION_JSON_VALUE}, method = RequestMethod.GET)
+    @RequestMapping(path = "/{onto}/individuals/{id}/types", produces = {MediaType.APPLICATION_JSON_VALUE, MediaTypes.HAL_JSON_VALUE}, method = RequestMethod.GET)
     HttpEntity<PagedResources<Term>> getDirectTypes(@PathVariable("onto") String ontologyId, @PathVariable("id") String termId, Pageable pageable,
                                                     PagedResourcesAssembler assembler) {
         ontologyId = ontologyId.toLowerCase();
@@ -111,7 +113,7 @@ public class OntologyIndividualController {
     }
 
 
-    @RequestMapping(path = "/{onto}/individuals/{id}/alltypes", produces = {MediaType.APPLICATION_JSON_VALUE}, method = RequestMethod.GET)
+    @RequestMapping(path = "/{onto}/individuals/{id}/alltypes", produces = {MediaType.APPLICATION_JSON_VALUE, MediaTypes.HAL_JSON_VALUE}, method = RequestMethod.GET)
     HttpEntity<PagedResources<Property>> ancestors(@PathVariable("onto") String ontologyId, @PathVariable("id") String termId, Pageable pageable,
                                                    PagedResourcesAssembler assembler) {
         ontologyId = ontologyId.toLowerCase();
@@ -132,7 +134,7 @@ public class OntologyIndividualController {
         try {
             String decoded = UriUtils.decode(termId, "UTF-8");
 
-            Object object = jsTreeBuilder.getIndividualJsTree(ontologyId, decoded);
+            Object object = jsTreeBuilder.getJsTree(ontologyId, decoded, false);
             ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
             return new HttpEntity<String>(ow.writeValueAsString(object));
         } catch (JsonProcessingException e) {

@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.data.web.PagedResourcesAssembler;
+import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.hateoas.Resource;
 import org.springframework.http.HttpEntity;
@@ -21,6 +22,8 @@ import org.springframework.web.util.UriUtils;
 import uk.ac.ebi.spot.ols.neo4j.model.Property;
 import uk.ac.ebi.spot.ols.neo4j.service.JsTreeBuilder;
 import uk.ac.ebi.spot.ols.neo4j.service.OntologyPropertyGraphService;
+import uk.ac.ebi.spot.ols.neo4j.service.PropertyJsTreeBuilder;
+import uk.ac.ebi.spot.ols.neo4j.service.ViewMode;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
@@ -42,9 +45,9 @@ public class OntologyPropertyController {
     PropertyAssembler termAssembler;
 
     @Autowired
-    JsTreeBuilder jsTreeBuilder;
+    PropertyJsTreeBuilder jsTreeBuilder;
 
-    @RequestMapping(path = "/{onto}/properties", produces = {MediaType.APPLICATION_JSON_VALUE}, method = RequestMethod.GET)
+    @RequestMapping(path = "/{onto}/properties", produces = {MediaType.APPLICATION_JSON_VALUE, MediaTypes.HAL_JSON_VALUE}, method = RequestMethod.GET)
     HttpEntity<PagedResources<Property>> getAllPropertiesByOntology(
             @PathVariable("onto") String ontologyId,
             @RequestParam(value = "iri", required = false) String iri,
@@ -81,7 +84,7 @@ public class OntologyPropertyController {
         return new ResponseEntity<>( assembler.toResource(terms, termAssembler), HttpStatus.OK);
     }
 
-    @RequestMapping(path = "/{onto}/properties/roots", produces = {MediaType.APPLICATION_JSON_VALUE}, method = RequestMethod.GET)
+    @RequestMapping(path = "/{onto}/properties/roots", produces = {MediaType.APPLICATION_JSON_VALUE, MediaTypes.HAL_JSON_VALUE}, method = RequestMethod.GET)
     HttpEntity<PagedResources<Property>> getRoots(
             @PathVariable("onto") String ontologyId,
             @RequestParam(value = "includeObsoletes", defaultValue = "false", required = false) boolean includeObsoletes,
@@ -95,7 +98,7 @@ public class OntologyPropertyController {
         return new ResponseEntity<>( assembler.toResource(roots, termAssembler), HttpStatus.OK);
     }
 
-    @RequestMapping(path = "/{onto}/properties/{id}", produces = {MediaType.APPLICATION_JSON_VALUE}, method = RequestMethod.GET)
+    @RequestMapping(path = "/{onto}/properties/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaTypes.HAL_JSON_VALUE}, method = RequestMethod.GET)
     HttpEntity<Resource<Property>> getProperty(@PathVariable("onto") String ontologyId, @PathVariable("id") String termId) throws ResourceNotFoundException {
         ontologyId = ontologyId.toLowerCase();
 
@@ -108,7 +111,7 @@ public class OntologyPropertyController {
         }
     }
 
-    @RequestMapping(path = "/{onto}/properties/{id}/parents", produces = {MediaType.APPLICATION_JSON_VALUE}, method = RequestMethod.GET)
+    @RequestMapping(path = "/{onto}/properties/{id}/parents", produces = {MediaType.APPLICATION_JSON_VALUE, MediaTypes.HAL_JSON_VALUE}, method = RequestMethod.GET)
     HttpEntity<PagedResources<Property>> getParents(@PathVariable("onto") String ontologyId, @PathVariable("id") String termId, Pageable pageable,
                                                     PagedResourcesAssembler assembler) {
         ontologyId = ontologyId.toLowerCase();
@@ -123,7 +126,7 @@ public class OntologyPropertyController {
         }
     }
 
-    @RequestMapping(path = "/{onto}/properties/{id}/children", produces = {MediaType.APPLICATION_JSON_VALUE}, method = RequestMethod.GET)
+    @RequestMapping(path = "/{onto}/properties/{id}/children", produces = {MediaType.APPLICATION_JSON_VALUE, MediaTypes.HAL_JSON_VALUE}, method = RequestMethod.GET)
     HttpEntity<PagedResources<Property>> children(@PathVariable("onto") String ontologyId, @PathVariable("id") String termId, Pageable pageable,
                                                   PagedResourcesAssembler assembler) {
         ontologyId = ontologyId.toLowerCase();
@@ -138,7 +141,7 @@ public class OntologyPropertyController {
         }
     }
 
-    @RequestMapping(path = "/{onto}/properties/{id}/descendants", produces = {MediaType.APPLICATION_JSON_VALUE}, method = RequestMethod.GET)
+    @RequestMapping(path = "/{onto}/properties/{id}/descendants", produces = {MediaType.APPLICATION_JSON_VALUE, MediaTypes.HAL_JSON_VALUE}, method = RequestMethod.GET)
     HttpEntity<PagedResources<Property>> descendants(@PathVariable("onto") String ontologyId, @PathVariable("id") String termId, Pageable pageable,
                                                      PagedResourcesAssembler assembler) {
         ontologyId = ontologyId.toLowerCase();
@@ -153,7 +156,7 @@ public class OntologyPropertyController {
         }
     }
 
-    @RequestMapping(path = "/{onto}/properties/{id}/ancestors", produces = {MediaType.APPLICATION_JSON_VALUE}, method = RequestMethod.GET)
+    @RequestMapping(path = "/{onto}/properties/{id}/ancestors", produces = {MediaType.APPLICATION_JSON_VALUE, MediaTypes.HAL_JSON_VALUE}, method = RequestMethod.GET)
     HttpEntity<PagedResources<Property>> ancestors(@PathVariable("onto") String ontologyId, @PathVariable("id") String termId, Pageable pageable,
                                                    PagedResourcesAssembler assembler) {
         ontologyId = ontologyId.toLowerCase();
@@ -180,7 +183,7 @@ public class OntologyPropertyController {
         try {
             String decoded = UriUtils.decode(termId, "UTF-8");
 
-            Object object= jsTreeBuilder.getJsTreePropertyChildren(ontologyId, decoded, nodeId);
+            Object object= jsTreeBuilder.getJsTreeChildren(ontologyId, decoded, nodeId);
             ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
             return new HttpEntity<String>(ow.writeValueAsString(object));
         } catch (JsonProcessingException e) {
@@ -191,16 +194,21 @@ public class OntologyPropertyController {
         throw new ResourceNotFoundException();
     }
 
-    @RequestMapping(path = "/{onto}/properties/{id}/jstree", produces = {MediaType.APPLICATION_JSON_VALUE}, method = RequestMethod.GET)
-    HttpEntity<String> getJsTree(@PathVariable("onto") String ontologyId, @PathVariable("id") String termId,
-                                 @RequestParam(value = "siblings", defaultValue = "false", required = false) boolean siblings)
+    @RequestMapping(path = "/{onto}/properties/{id}/jstree",
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaTypes.HAL_JSON_VALUE},
+            method = RequestMethod.GET)
+    HttpEntity<String> getJsTree(
+            @PathVariable("onto") String ontologyId,
+            @PathVariable("id") String termId,
+            @RequestParam(value = "siblings", defaultValue = "false", required = false) boolean siblings,
+            @RequestParam(value = "viewMode", defaultValue = "PreferredRoots", required = false) String viewMode)
     {
         ontologyId = ontologyId.toLowerCase();
 
         try {
             String decoded = UriUtils.decode(termId, "UTF-8");
 
-            Object object= jsTreeBuilder.getPropertyJsTree(ontologyId, decoded, siblings);
+            Object object= jsTreeBuilder.getJsTree(ontologyId, decoded, siblings, ViewMode.getFromShortName(viewMode));
             ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
             return new HttpEntity<String>(ow.writeValueAsString(object));
         } catch (JsonProcessingException e) {

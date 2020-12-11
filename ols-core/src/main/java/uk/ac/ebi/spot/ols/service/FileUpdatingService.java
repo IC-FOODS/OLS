@@ -33,6 +33,8 @@ public class FileUpdatingService {
 
     private Logger log = LoggerFactory.getLogger(getClass());
 
+    private static int MAX_LOAD_ATTEMPTS = 3;
+
     public Logger getLog() {
         return log;
     }
@@ -60,33 +62,55 @@ public class FileUpdatingService {
             getLog().info("Checking status of " + document.getOntologyId());
             OntologyResourceConfig config = document.getConfig();
 
-
             // check if was previously failing
             boolean wasFailing = false;
             if (document.getStatus() != null) {
-                //
-                if (document.getStatus().equals(Status.FAILED) || document.getStatus().equals(Status.NOTLOADED)) {
+                if (document.getStatus().equals(Status.FAILED) || document.getStatus().equals(Status.NOTLOADED) ||
+                        document.getStatus().equals(Status.LOADING) || document.getStatus().equals(Status.DOWNLOADING)) {
                     wasFailing = true;
+                    getLog().debug(document.getOntologyId() + " + failed previously with status = " + document.getStatus());
+                } else {
+                    document.setLoadAttempts(0);
                 }
             }
 
+            boolean skip = document.getStatus() == Status.SKIP;
 
-            document.setStatus(Status.DOWNLOADING);
-            document.setUpdated(new Date());
-            document.setMessage("");
-            ontologyRepositoryService.update(document);
+            if(!skip) {
+                if(wasFailing) {
+                    int newLoadAttempts = document.getLoadAttempts() + 1;
+                    document.setLoadAttempts(newLoadAttempts);
+                    
+                    getLog().info(document.getOntologyId() + " has failed " + newLoadAttempts + " times out of " + MAX_LOAD_ATTEMPTS + " max");
+
+                    if(newLoadAttempts >= MAX_LOAD_ATTEMPTS) {
+                        getLog().info(document.getOntologyId() + " failed too many times; skipping now and in future");
+                        document.setStatus(Status.SKIP);
+                        skip = true;
+                    }
+                }
+            }
 
             FileUpdater.FileStatus status = null;
+
             try {
-                status = fileUpdateService.getFile(config.getNamespace(), config.getFileLocation());
-                document.setLocalPath(status.getFile().getCanonicalPath());
-                if (force || status.isNew() || wasFailing) {
-                    document.setStatus(Status.TOLOAD);
+                if(!skip) {
+                    document.setStatus(Status.DOWNLOADING);
+                    document.setUpdated(new Date());
                     document.setMessage("");
-                }
-                else {
-                    document.setStatus(Status.LOADED);
-                    document.setMessage("");
+                    ontologyRepositoryService.update(document);
+
+                    status = fileUpdateService.getFile(config.getNamespace(), config.getFileLocation());
+                    document.setLocalPath(status.getFile().getCanonicalPath());
+                    String fileHash = document.getFileHash();
+                    if (force || fileHash == null || !fileHash.equals(status.getLatestHash()) || wasFailing) {
+                        document.setStatus(Status.TOLOAD);
+                        document.setMessage("");
+                    }
+                    else {
+                        document.setStatus(Status.LOADED);
+                        document.setMessage("");
+                    }
                 }
             } catch (FileUpdateServiceException e) {
 
@@ -97,7 +121,7 @@ public class FileUpdatingService {
                     document.setStatus(Status.FAILED);
                 }
                 document.setMessage(e.getMessage());
-                log.error("Error checking: " + config.getTitle() + e.getMessage());
+                log.error("Error checking: " + config.getTitle() + e.getMessage(), e);
             } catch (IOException e) {
                 if (document.getLoaded() == null) {
                     document.setStatus(Status.NOTLOADED);
@@ -112,6 +136,10 @@ public class FileUpdatingService {
                 getLog().info("Status of " + document.getOntologyId() + " is " + document.getStatus());
 
                 document.setUpdated(new Date());
+
+                if(status != null)
+                    document.setFileHash(status.getLatestHash());
+
                 ontologyRepositoryService.update(document);
                 latch.countDown();
             }

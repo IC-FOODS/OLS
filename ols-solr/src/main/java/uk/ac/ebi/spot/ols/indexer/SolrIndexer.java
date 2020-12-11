@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.DigestUtils;
+import uk.ac.ebi.spot.ols.exception.IndexingException;
 import uk.ac.ebi.spot.ols.loader.OntologyLoader;
 import uk.ac.ebi.spot.ols.model.SuggestDocument;
 import uk.ac.ebi.spot.ols.model.TermDocument;
@@ -56,6 +57,7 @@ public class SolrIndexer implements OntologyIndexer {
 
             getLog().info("Number of classes to index: " + loader.getAllClasses().size());
             getLog().info("Number of object properties to index: " + loader.getAllObjectPropertyIRIs().size());
+            getLog().info("Number of data properties to index: " + loader.getAllDataPropertyIRIs().size());
             getLog().info("Number of annotation properties to index: " + loader.getAllAnnotationPropertyIRIs().size());
             getLog().info("Number of individuals to index: " + loader.getAllIndividualIRIs().size());
 
@@ -93,6 +95,15 @@ public class SolrIndexer implements OntologyIndexer {
             }
 
             for (IRI classTerm : loader.getAllObjectPropertyIRIs()) {
+                TermDocumentBuilder builder = extractFeatures(loader, classTerm);
+                builder.setType(TermType.PROPERTY.toString().toLowerCase());
+                builder.setId(generateId(loader.getOntologyName(), "property", classTerm.toString()));
+                builder.setUri_key(generateAnnotationId(loader.getOntologyName() + classTerm.toString() + "property").hashCode());
+
+                documents.add(builder.createTermDocument());
+            }
+
+            for (IRI classTerm : loader.getAllDataPropertyIRIs()) {
                 TermDocumentBuilder builder = extractFeatures(loader, classTerm);
                 builder.setType(TermType.PROPERTY.toString().toLowerCase());
                 builder.setId(generateId(loader.getOntologyName(), "property", classTerm.toString()));
@@ -187,16 +198,21 @@ public class SolrIndexer implements OntologyIndexer {
     }
 
     @Override
-    public void dropIndex(OntologyLoader loader) {
-        Iterable<TermDocument> documents = ontologySolrRepository.findByOntologyName(loader.getOntologyName());
+    public void dropIndex(OntologyLoader loader) throws IndexingException {
+        dropIndex(loader.getOntologyName());
+    }
+
+    @Override
+    public void dropIndex(String ontologyId) {
+        Iterable<TermDocument> documents = ontologySolrRepository.findByOntologyName(ontologyId);
 
         if (documents.iterator().hasNext()) {
-            getLog().info("Deleting solr index for " + loader.getOntologyName());
+            getLog().info("Deleting solr index for " + ontologyId);
             long startTime = System.currentTimeMillis();
             ontologySolrRepository.delete(documents);
             long endTime = System.currentTimeMillis();
             long duration = (endTime - startTime) / 1000; // time in seconds
-            getLog().info(loader.getOntologyName() + " removed from solr in " + duration + " seconds");
+            getLog().info(ontologyId + " removed from solr in " + duration + " seconds");
         }
     }
 

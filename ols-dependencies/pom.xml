@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <groupId>uk.ac.ebi.spot</groupId>
     <artifactId>ols-dependencies</artifactId>
-    <version>3.1.1-SNAPSHOT</version>
+    <version>3.2.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <parent>
@@ -18,13 +16,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <ols.version>3.1.1-SNAPSHOT</ols.version>
-        <owlapi.version>3.5.2</owlapi.version>
-        <HermiT.version>1.3.8.4</HermiT.version>
-        <elk.version>0.4.2</elk.version>
+        <owlapi.version>5.1.14</owlapi.version>
+        <HermiT.version>1.4.3.517</HermiT.version>
+        <elk.version>0.5.0-SNAPSHOT</elk.version>
         <commons-cli.version>1.2</commons-cli.version>
         <springboot.maven>1.2.5.RELEASE</springboot.maven>
         <mongodb.version>2.14.3</mongodb.version>
+        <junit.jupiter.version>5.4.0</junit.jupiter.version>       
     </properties>
 
     <dependencies>
@@ -41,34 +39,38 @@
             <dependency>
                 <groupId>uk.ac.ebi.spot</groupId>
                 <artifactId>ols-core</artifactId>
-                <version>${ols.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>uk.ac.ebi.spot</groupId>
                 <artifactId>ols-solr</artifactId>
-                <version>${ols.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>uk.ac.ebi.spot</groupId>
                 <artifactId>ontology-tools</artifactId>
-                <version>${ols.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>uk.ac.ebi.spot</groupId>
                 <artifactId>ols-web</artifactId>
-                <version>${ols.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>uk.ac.ebi.spot</groupId>
                 <artifactId>ols-neo4j</artifactId>
-                <version>${ols.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>uk.ac.ebi.spot</groupId>
                 <artifactId>ols-mongo</artifactId>
-                <version>${ols.version}</version>
+                <version>${project.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>uk.ac.ebi.spot</groupId>
+                <artifactId>resource-usage</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <!--  additional external dependencies -->
             <dependency>
                 <groupId>net.sourceforge.owlapi</groupId>
@@ -76,14 +78,42 @@
                 <version>${owlapi.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.hermit-reasoner</groupId>
+                <groupId>net.sourceforge.owlapi</groupId>
                 <artifactId>org.semanticweb.hermit</artifactId>
                 <version>${HermiT.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>net.sourceforge.owlapi</groupId>
+                        <artifactId>owlapi-apibinding</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>net.sourceforge.owlapi</groupId>
+                        <artifactId>owlapi-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>net.sourceforge.owlapi</groupId>
+                        <artifactId>owlapi-impl</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.semanticweb.elk</groupId>
-                <artifactId>elk-owlapi</artifactId>
+                <artifactId>elk-owlapi5</artifactId>
                 <version>${elk.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>net.sourceforge.owlapi</groupId>
+                        <artifactId>owlapi-apibinding</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>net.sourceforge.owlapi</groupId>
+                        <artifactId>owlapi-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>net.sourceforge.owlapi</groupId>
+                        <artifactId>owlapi-impl</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>commons-cli</groupId>
@@ -97,17 +127,35 @@
                 <version>${springboot.maven}</version>
             </dependency>
 
+		    <dependency>
+		        <groupId>org.junit.jupiter</groupId>
+		        <artifactId>junit-jupiter-engine</artifactId>
+		        <version>${junit.jupiter.version}</version>
+		        <scope>test</scope>
+		    </dependency>
 
+		    <dependency>
+		        <groupId>org.junit.jupiter</groupId>
+		        <artifactId>junit-jupiter-api</artifactId>
+		        <version>${junit.jupiter.version}</version>
+		        <scope>test</scope>
+		    </dependency>
+		    
+		    <dependency>
+		        <groupId>org.junit.jupiter</groupId>
+		        <artifactId>junit-jupiter-params</artifactId>
+		        <version>${junit.jupiter.version}</version>
+		        <scope>test</scope>
+		    </dependency>	
         </dependencies>
     </dependencyManagement>
-
 
     <repositories>
 
         <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>http://repo.spring.io/milestone</url>
+            <id>maven-neo4j</id>
+            <name>Maven Neo4j</name>
+            <url>https://m2.neo4j.org/content/repositories/releases/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -128,7 +176,7 @@
         <repository>
             <id>neo4j</id>
             <name>Neo4j</name>
-            <url>http://m2.neo4j.org/</url>
+            <url>http://m2.neo4j.org/content/repositories/releases/</url>
         </repository>
 
         <repository>
@@ -136,5 +184,29 @@
             <name>jcenter</name>
             <url>https://jcenter.bintray.com/</url>
         </repository>
+        <repository>
+            <id>sonatype-nexus-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
     </repositories>
+    
+    <distributionManagement>
+   		<repository>
+   			<id>nexus-release</id>
+   			<name>Releases</name>
+   			<url>https://www.ebi.ac.uk/spot/nexus/repository/maven-releases/</url>
+   		</repository>
+   		<snapshotRepository>
+   			<id>nexus-snapshot</id>
+   			<name>Snapshot</name>
+   			<url>https://www.ebi.ac.uk/spot/nexus/repository/maven-snapshots/</url>
+   		</snapshotRepository>
+   	</distributionManagement>
+
 </project>

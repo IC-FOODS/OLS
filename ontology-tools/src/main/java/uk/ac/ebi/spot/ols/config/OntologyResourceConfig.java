@@ -6,6 +6,7 @@ import uk.ac.ebi.spot.ols.util.ReasonerType;
 import java.net.URI;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Map;
 
 /**
@@ -40,12 +41,22 @@ public class OntologyResourceConfig  {
     private  Collection<URI> hierarchicalProperties;
     private  Collection<String> baseUris;
     private  Collection<URI> hiddenProperties;
+    private  Collection<URI> preferredRootTerms = new HashSet<>();
     private boolean isSkos;
+
+    private boolean allowDownload;
 
     // these are any metadata properties for the ontology, such as title or definition that are included in the ontology as OWL ontology annotation
     private Collection<String> internalMetadataProperties;
 
-    public OntologyResourceConfig(String id, String versionIri, String title, String namespace, String preferredPrefix, String description, String homepage, String mailingList, Collection<String> creators, Map<String, Collection<String>> annotations, URI fileLocation, ReasonerType reasonerType, boolean oboSlims, URI labelProperty, Collection<URI> definitionProperties, Collection<URI> synonymProperties, Collection<URI> hierarchicalProperties, Collection<String> baseUris, Collection<URI> hiddenProperties, boolean isSkos, Collection<String> internalMetadataProperties) {
+    public OntologyResourceConfig(String id, String versionIri, String title, String namespace, String preferredPrefix,
+                                  String description, String homepage, String mailingList, Collection<String> creators,
+                                  Map<String, Collection<String>> annotations, URI fileLocation, ReasonerType reasonerType,
+                                  boolean oboSlims, URI labelProperty, Collection<URI> definitionProperties,
+                                  Collection<URI> synonymProperties, Collection<URI> hierarchicalProperties,
+                                  Collection<String> baseUris, Collection<URI> hiddenProperties, boolean isSkos,
+                                  Collection<String> internalMetadataProperties, Collection<URI> preferredRootTerms,
+                                  boolean allowDownload) {
         this.id = id;
         this.versionIri = versionIri;
         this.title = title;
@@ -67,26 +78,9 @@ public class OntologyResourceConfig  {
         this.hiddenProperties = hiddenProperties;
         this.isSkos = isSkos;
         this.internalMetadataProperties = internalMetadataProperties;
+        this.preferredRootTerms = preferredRootTerms;
+        this.allowDownload = allowDownload;
     }
-
-//    public OntologyResourceConfig(String id, String title, String namespace, String preferredPrefix, URI fileLocation, boolean isInferred, boolean classify, DLExpressivity reasonerType, boolean oboSlims, URI labelProperty, Collection<URI> definitionProperties, Collection<URI> synonymProperties, Collection<URI> hierarchicalProperties, Collection<String> baseUris, Collection<URI> hiddenProperties, boolean isSkos) {
-//        this.id = id;
-//        this.title = title;
-//        this.namespace = namespace.toLowerCase();
-//        this.fileLocation = fileLocation;
-//        this.isInferred = isInferred;
-//        this.classify = classify;
-//        this.reasonerType = reasonerType;
-//        this.oboSlims = oboSlims;
-//        this.labelProperty = labelProperty;
-//        this.definitionProperties = definitionProperties;
-//        this.synonymProperties = synonymProperties;
-//        this.hierarchicalProperties = hierarchicalProperties;
-//        this.baseUris = baseUris;
-//        this.hiddenProperties = hiddenProperties;
-//        this.preferredPrefix = preferredPrefix;
-//        this.isSkos = isSkos;
-//    }
 
     public OntologyResourceConfig() {
     }
@@ -114,6 +108,8 @@ public class OntologyResourceConfig  {
         this.creators = builder.creators;
         this.annotations = builder.annotations;
         this.internalMetadataProperties = builder.internalMetadatProperties;
+        this.preferredRootTerms = builder.preferredRootTerms;
+        this.allowDownload = builder.allowDownload;
     }
 
     public void setId(String id) {
@@ -292,6 +288,26 @@ public class OntologyResourceConfig  {
         this.hiddenProperties = hiddenProperties;
     }
 
+    public void setNamespace(String namespace) {
+        this.namespace = namespace;
+    }
+
+    public void setPreferredRootTerms(Collection<URI> preferredRootTerms) {
+        this.preferredRootTerms = preferredRootTerms;
+    }
+
+    public Collection<URI> getPreferredRootTerms() {
+        return this.preferredRootTerms;
+    }
+
+    public boolean getAllowDownload() {
+        return this.allowDownload;
+    }
+
+    public void setAllowDownload(boolean allowDownload) {
+        this.allowDownload = allowDownload;
+    }
+
     public static class OntologyResourceConfigBuilder {
         private  String id;
         private  String versionIri;
@@ -315,6 +331,8 @@ public class OntologyResourceConfig  {
         private Collection<String> creators = Collections.emptySet();
         private Map<String, Collection<String>> annotations = Collections.emptyMap();
         private Collection<String> internalMetadatProperties = Collections.emptySet();
+        private Collection<URI> preferredRootTerms = Collections.emptySet();
+        private boolean allowDownload = true;
 
         public OntologyResourceConfigBuilder(String id, String title, String namespace, URI fileLocation) {
             this.id = id;
@@ -432,6 +450,14 @@ public class OntologyResourceConfig  {
         public OntologyResourceConfigBuilder setInternalMetadatProperties(Collection<String> internalMetadatProperties) {
             this.internalMetadatProperties = internalMetadatProperties;
             return this;
+        }
+
+        public void setPreferredRootTerms(Collection<URI> preferredRootTerms) {
+            this.preferredRootTerms = preferredRootTerms;
+        }
+
+        public void setAllowDownload(boolean allowDownload) {
+            this.allowDownload = allowDownload;
         }
 
         public OntologyResourceConfig build() {

@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <include resource="org/springframework/boot/logging/logback/base.xml"/>
-    <logger name="org.springframework.web" level="INFO"/>
+    <property name="LOG_PATH" value="${catalina.home}/logs" />
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{ISO8601} %p %t %c{0}.%M - %m%n</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_PATH}/ols.log</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} %M - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <root level="error">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </root>
+    <logger name="uk.ac.ebi.spot.ols" additivity="false" level="debug">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE"/>
+    </logger>
 </configuration>

@@ -4,8 +4,11 @@ import org.semanticweb.owlapi.model.IRI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Component;
+
+import uk.ac.ebi.spot.ols.config.OntologyLoadingConfiguration;
 import uk.ac.ebi.spot.ols.config.OntologyResourceConfig;
 import uk.ac.ebi.spot.ols.exception.IndexingException;
 import uk.ac.ebi.spot.ols.exception.OntologyLoadingException;
@@ -15,6 +18,7 @@ import uk.ac.ebi.spot.ols.model.Status;
 import uk.ac.ebi.spot.ols.model.OntologyDocument;
 import uk.ac.ebi.spot.ols.model.OntologyIndexer;
 import uk.ac.ebi.spot.ols.xrefs.DatabaseService;
+import uk.ac.ebi.spot.usage.ResourceUsage;
 
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -30,11 +34,7 @@ import java.util.List;
 @Component
 public class MongoOntologyIndexingService implements OntologyIndexingService{
 
-    private Logger log = LoggerFactory.getLogger(getClass());
-
-    public Logger getLog() {
-        return log;
-    }
+    private final Logger logger = LoggerFactory.getLogger(MongoOntologyIndexingService.class);
 
     @Autowired
     OntologyRepositoryService ontologyRepositoryService;
@@ -44,19 +44,29 @@ public class MongoOntologyIndexingService implements OntologyIndexingService{
 
     @Autowired
     DatabaseService databaseService;
+    
+    @Autowired 
+    OntologyLoadingConfiguration ontologyLoadingConfiguration;
 
     @Override
-    public void indexOntologyDocument(OntologyDocument document) throws IndexingException {
+    public boolean indexOntologyDocument(OntologyDocument document) throws IndexingException {
 
         OntologyLoader loader = null;
         Collection<IRI> classes;
         Collection<IRI> properties;
         Collection<IRI> individuals;
         String message = "";
-        Status status = Status.FAILED;
+        Status status = Status.LOADING;
+        boolean result = false;
 
+      logger.trace("annotationproperty.preferredroot.term = " + 
+		ontologyLoadingConfiguration.getPreferredRootTermAnnotationProperty());
+
+        ResourceUsage.logUsage(logger, "#### Monitoring ", document.getOntologyId() +
+                ":Before loading ontology", ":");
         try {
-            loader = OntologyLoaderFactory.getLoader(document.getConfig(), databaseService);
+            loader = OntologyLoaderFactory.getLoader(document.getConfig(), databaseService,
+            		ontologyLoadingConfiguration);
             if (document.getLocalPath() != null) {
                 // if updated get local path, and set location to local file
                 loader.setOntologyResource(new FileSystemResource(document.getLocalPath()));
@@ -68,7 +78,7 @@ public class MongoOntologyIndexingService implements OntologyIndexingService{
 
             // this means that file parsed, but had nothing in it, which is a bit suspect - indexing should fail until we undertand why/how this could happen
             if (classes.size() + properties.size() + individuals.size()== 0) {
-                getLog().error("A suspiciously small or zero classes or properties found in latest version of " + loader.getOntologyName() + ": Won't index!");
+            	logger.error("A suspiciously small or zero classes or properties found in latest version of " + loader.getOntologyName() + ": Won't index!");
                 message = "Failed to load - last update had no classes or properties so was rejected";
                 document.setStatus(Status.FAILED);
                 document.setMessage(message);
@@ -77,16 +87,17 @@ public class MongoOntologyIndexingService implements OntologyIndexingService{
                 throw new IndexingException("Empty ontology found", new RuntimeException());
             }
 
-        } catch (Exception e) {
-            message = e.getMessage() + ":" + e.getCause().getMessage();
-            getLog().error(message);
+        } catch (Throwable t) {
+            message = t.getMessage();
+            logger.error(message, t);
             document.setStatus(Status.FAILED);
             document.setMessage(message);
             ontologyRepositoryService.update(document);
             // just set document to failed and return
-            return;
+            return result;
         }
-
+        ResourceUsage.logUsage(logger, "#### Monitoring ",document.getOntologyId() +
+                ":After loading ontology, before indexing ontology", ":");
         document.setStatus(Status.LOADING);
         ontologyRepositoryService.update(document);
         // if we get to here, we should have at least loaded the ontology
@@ -95,8 +106,12 @@ public class MongoOntologyIndexingService implements OntologyIndexingService{
             // get all the available indexers
             for (OntologyIndexer indexer : indexers) {
                 // create the new index
-                indexer.dropIndex(loader);
+                indexer.dropIndex(loader.getOntologyName());
+                ResourceUsage.logUsage(logger, "#### Monitoring ",document.getOntologyId() +
+                        ":After dropping index" + indexer.toString(), ":");
                 indexer.createIndex(loader);
+                ResourceUsage.logUsage(logger, "#### Monitoring ", document.getOntologyId() +
+                        ":After after creating index for " + indexer.toString(), ":");
             }
 
             // update any ontology meta data
@@ -134,24 +149,49 @@ public class MongoOntologyIndexingService implements OntologyIndexingService{
             if (loader.getVersionNumber() != null) {
                 config.setVersion(loader.getVersionNumber());
             }
-            else {
-                config.setVersion(new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
-            }
             document.setConfig(config);
             document.setNumberOfTerms(classes.size());
             document.setNumberOfProperties(properties.size());
             document.setNumberOfIndividuals(individuals.size());
             status = Status.LOADED;
             document.setLoaded(new Date());
-
-        } catch (Exception e) {
-            getLog().error("Error indexing " + document.getOntologyId(), e.getMessage());
+            result = true;
+        } catch (Throwable t) {
+        	logger.error("Error indexing " + document.getOntologyId(), t);
             status = Status.FAILED;
-            message = e.getMessage();
-            throw e;
+            message = t.getMessage();
         }
         finally {
 
+            document.setStatus(status);
+            document.setUpdated(new Date());
+            document.setMessage(message);
+            ontologyRepositoryService.update(document);
+            return result;
+        }
+    }
+
+    @Override
+    public void removeOntologyDocumentFromIndex(OntologyDocument document) throws IndexingException {
+        String message = "";
+        Status status = Status.FAILED;
+
+        try {
+
+            // get all the available indexers
+            for (OntologyIndexer indexer : indexers) {
+                // delete the ontology
+                indexer.dropIndex(document.getOntologyId());
+            }
+            status = Status.REMOVED;
+
+        } catch (Throwable t) {
+        	logger.error("Error removing index for " + document.getOntologyId(), t.getMessage());
+            status = Status.FAILED;
+            message = t.getMessage();
+            throw t;
+        }
+        finally {
             document.setStatus(status);
             document.setUpdated(new Date());
             document.setMessage(message);

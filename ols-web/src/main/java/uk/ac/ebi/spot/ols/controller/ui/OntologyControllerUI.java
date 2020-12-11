@@ -1,32 +1,23 @@
 package uk.ac.ebi.spot.ols.controller.ui;
 
-import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Sort;
-import uk.ac.ebi.spot.ols.exception.ErrorMessage;
 import uk.ac.ebi.spot.ols.model.OntologyDocument;
-import uk.ac.ebi.spot.ols.neo4j.model.Term;
-import uk.ac.ebi.spot.ols.model.Status;
 import uk.ac.ebi.spot.ols.neo4j.service.OntologyTermGraphService;
 import uk.ac.ebi.spot.ols.service.OntologyRepositoryService;
 import uk.ac.ebi.spot.ols.util.OLSEnv;
 
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -44,16 +35,21 @@ public class OntologyControllerUI {
     @Autowired
     OntologyRepositoryService repositoryService;
 
+    @Autowired
+    private OntologyTermGraphService ontologyTermGraphService;
+
+    @Autowired
+    private CustomisationProperties customisationProperties;
 
     // Reading these from application.properties
     @Value("${ols.downloads.folder:}")
     private String downloadsFolder;
 
-
     @RequestMapping(path = "", method = RequestMethod.GET)
     String getAll(Model model) {
         List list = repositoryService.getAllDocuments(new Sort(new Sort.Order(Sort.Direction.ASC, "ontologyId")));
         model.addAttribute("all_ontologies", list);
+        customisationProperties.setCustomisationModelAttributes(model);
         return "browse";
     }
 
@@ -79,6 +75,9 @@ public class OntologyControllerUI {
             model.addAttribute("contact", contact);
 
             model.addAttribute("ontologyDocument", document);
+
+            customisationProperties.setCustomisationModelAttributes(model);
+            DisplayUtils.setPreferredRootTermsModelAttributes(ontologyId, document, ontologyTermGraphService, model);
         }
         else {
             return homeController.doSearch(
@@ -97,6 +96,19 @@ public class OntologyControllerUI {
 
     @RequestMapping(path = "/{onto}/download", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE, method = RequestMethod.GET)
     public @ResponseBody  FileSystemResource getDownloadOntology(@PathVariable("onto") String ontologyId, HttpServletResponse response) throws ResourceNotFoundException {
+
+        ontologyId = ontologyId.toLowerCase();
+
+        OntologyDocument document = repositoryService.get(ontologyId);
+
+        if (document == null) {
+            throw new ResourceNotFoundException("Ontology called " + ontologyId + " not found");
+        }
+
+        if(document.getConfig().getAllowDownload() == false) {
+            throw new ResourceNotFoundException("This ontology is not available for download");
+        }
+
         try {
             response.setHeader( "Content-Disposition", "filename=" + ontologyId + ".owl" );
             return new FileSystemResource(getDownloadFile(ontologyId));

@@ -1,0 +1,1798 @@
+[source,http]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 90097
+
+{
+  "_embedded" : {
+    "terms" : [ {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097597",
+      "label" : "GO_0097597",
+      "description" : [ "Specialized organelle found in Giardia species (trophozoite stage) and characterized by a spiral array of microtubules and microtubule-associated structures including dorsal microribbons and crossbridges. The edge of the ventral disc narrows into a lateral crest. The ventral disk mediates mechanical attachment of the trophozoite to the host's intestinal wall, and contains the contractile proteins actinin, alpha-actinin, myosin, and tropomyosin working towards contraction of the disk involved in adherence." ],
+      "annotation" : {
+        "comment" : [ "Due to the asymmetric nature of the Giardia trophozoite, this term is defined spatially as the trophozoite is viewed from the dorsal side, with the two nuclei dorsal to the ventral disc, and the ventral disc toward the anterior." ],
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2014-04-03T11:29:58Z" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "hasRelatedSynonym" : [ "adhesive disc", "ventral disk" ],
+        "id" : [ "GO:0097597" ]
+      },
+      "synonyms" : [ "ventral adhesive disc" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0097597",
+      "obo_id" : "GO:0097597",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "Specialized organelle found in Giardia species (trophozoite stage) and characterized by a spiral array of microtubules and microtubule-associated structures including dorsal microribbons and crossbridges. The edge of the ventral disc narrows into a lateral crest. The ventral disk mediates mechanical attachment of the trophozoite to the host's intestinal wall, and contains the contractile proteins actinin, alpha-actinin, myosin, and tropomyosin working towards contraction of the disk involved in adherence.",
+        "oboXrefs" : [ {
+          "database" : "ISBN",
+          "id" : "9780124260207",
+          "description" : null,
+          "url" : "https://www.worldcat.org/search?q=bn%3A9780124260207"
+        }, {
+          "database" : "PMID",
+          "id" : "4777416",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/4777416"
+        }, {
+          "database" : "PMID",
+          "id" : "11432808",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/11432808"
+        }, {
+          "database" : "GOC",
+          "id" : "giardia",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "PMID",
+          "id" : "5961344",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/5961344"
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097597"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097597/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097597/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097597/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097597/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097597/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097597/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097597/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097597/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097597/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097597/graph"
+        },
+        "BFO_0000051" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097597/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FBFO_0000051"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0005929",
+      "label" : "GO_0005929",
+      "description" : [ "A specialized eukaryotic organelle that consists of a filiform extrusion of the cell surface and of some cytoplasmic parts. Each cilium is largely bounded by an extrusion of the cytoplasmic (plasma) membrane, and contains a regular longitudinal array of microtubules, anchored to a basal body." ],
+      "annotation" : {
+        "comment" : [ "Note that we deem cilium and microtubule-based flagellum to be equivalent. In most eukaryotic species, intracellular sub-components of the cilium, such as the ciliary base and rootlet, are located near the plasma membrane. In Diplomonads such as Giardia, instead, the same ciliary parts are located further intracellularly. Also, 'cilium' may be used when axonemal structure and/or motility are unknown, or when axonemal structure is unusual. For all other cases, please refer to children of 'cilium'. Finally, note that any role of ciliary proteins in sensory events should be captured by annotating to relevant biological process terms." ],
+        "hasAlternativeId" : [ "GO:0072372" ],
+        "hasDbXref" : [ "NIF_Subcellular:sao787716553", "FMA:67181", "Wikipedia:Cilium" ],
+        "hasNarrowSynonym" : [ "primary cilium" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "hasRelatedSynonym" : [ "flagellum" ],
+        "id" : [ "GO:0005929" ]
+      },
+      "synonyms" : [ "microtubule-based flagellum", "eukaryotic flagellum" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0005929",
+      "obo_id" : "GO:0005929",
+      "in_subset" : [ "goslim_chembl", "goslim_generic", "goslim_pir" ],
+      "obo_definition_citation" : [ {
+        "definition" : "A specialized eukaryotic organelle that consists of a filiform extrusion of the cell surface and of some cytoplasmic parts. Each cilium is largely bounded by an extrusion of the cytoplasmic (plasma) membrane, and contains a regular longitudinal array of microtubules, anchored to a basal body.",
+        "oboXrefs" : [ {
+          "database" : "ISBN",
+          "id" : "0198547684",
+          "description" : null,
+          "url" : "https://www.worldcat.org/search?q=bn%3A0198547684"
+        }, {
+          "database" : "GOC",
+          "id" : "cilia",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "PMID",
+          "id" : "20144998",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/20144998"
+        }, {
+          "database" : "PMID",
+          "id" : "16824949",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/16824949"
+        }, {
+          "database" : "GOC",
+          "id" : "curators",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "GOC",
+          "id" : "vw",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "PMID",
+          "id" : "17009929",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/17009929"
+        }, {
+          "database" : "GOC",
+          "id" : "kmv",
+          "description" : null,
+          "url" : null
+        } ]
+      } ],
+      "obo_xref" : [ {
+        "database" : "Wikipedia",
+        "id" : "Cilium",
+        "description" : null,
+        "url" : "http://en.wikipedia.org/wiki/Cilium"
+      }, {
+        "database" : "NIF_Subcellular",
+        "id" : "sao787716553",
+        "description" : null,
+        "url" : "http://www.neurolex.org/wiki/sao787716553"
+      }, {
+        "database" : "FMA",
+        "id" : "67181",
+        "description" : null,
+        "url" : null
+      } ],
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0005929"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0005929/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0005929/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0005929/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0005929/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0005929/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0005929/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0005929/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0005929/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0005929/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0005929/graph"
+        },
+        "BFO_0000051" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0005929/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FBFO_0000051"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097730",
+      "label" : "GO_0097730",
+      "description" : [ "A cilium which may have a variable array of axonemal microtubules but does not contain molecular motors." ],
+      "annotation" : {
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2016-09-29T14:02:11Z" ],
+        "hasAlternativeId" : [ "GO:0031513" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "hasRelatedSynonym" : [ "nonmotile primary cilia", "nonmotile primary cilium", "immotile primary cilium", "sensory cilium" ],
+        "id" : [ "GO:0097730" ]
+      },
+      "synonyms" : [ "immotile cilium", "nonmotile cilium" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0097730",
+      "obo_id" : "GO:0097730",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A cilium which may have a variable array of axonemal microtubules but does not contain molecular motors.",
+        "oboXrefs" : [ {
+          "database" : "GOC",
+          "id" : "dgh",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "PMID",
+          "id" : "17009929",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/17009929"
+        }, {
+          "database" : "GOC",
+          "id" : "kmv",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "PMID",
+          "id" : "20144998",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/20144998"
+        }, {
+          "database" : "PMID",
+          "id" : "22118931",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/22118931"
+        }, {
+          "database" : "GOC",
+          "id" : "cilia",
+          "description" : null,
+          "url" : null
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : [ {
+        "name" : "immotile primary cilium",
+        "scope" : "hasRelatedSynonym",
+        "type" : null,
+        "xrefs" : [ {
+          "database" : "GOC",
+          "id" : "curators",
+          "description" : null,
+          "url" : null
+        } ]
+      }, {
+        "name" : "sensory cilium",
+        "scope" : "hasRelatedSynonym",
+        "type" : null,
+        "xrefs" : [ {
+          "database" : "GOC",
+          "id" : "curators",
+          "description" : null,
+          "url" : null
+        } ]
+      }, {
+        "name" : "nonmotile primary cilia",
+        "scope" : "hasRelatedSynonym",
+        "type" : null,
+        "xrefs" : [ {
+          "database" : "GOC",
+          "id" : "curators",
+          "description" : null,
+          "url" : null
+        } ]
+      } ],
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097730"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097730/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097730/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097730/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097730/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097730/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097730/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097730/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097730/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097730/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097730/graph"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097731",
+      "label" : "GO_0097731",
+      "description" : [ "A non-motile cilium where the axoneme has a ring of nine outer microtubule doublets but no central microtubules (and is therefore called a 9+0 axoneme)." ],
+      "annotation" : {
+        "comment" : [ "This type of cilia may be present in solitary (authentic primary cilia in many cell types) or in multiple copies (e.g. in Grueneberg ganglion neurons)." ],
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2016-09-29T14:05:03Z" ],
+        "hasNarrowSynonym" : [ "primary cilium" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "id" : [ "GO:0097731" ]
+      },
+      "synonyms" : [ "non-motile 9+0 cilium", "9+0 immotile cilium" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0097731",
+      "obo_id" : "GO:0097731",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A non-motile cilium where the axoneme has a ring of nine outer microtubule doublets but no central microtubules (and is therefore called a 9+0 axoneme).",
+        "oboXrefs" : [ {
+          "database" : "PMID",
+          "id" : "22118931",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/22118931"
+        }, {
+          "database" : "GOC",
+          "id" : "cilia",
+          "description" : null,
+          "url" : null
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097731"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097731/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097731/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097731/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097731/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097731/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097731/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097731/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097731/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097731/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097731/graph"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097733",
+      "label" : "GO_0097733",
+      "description" : [ "A specialised 9+0 non-motile cilium found in photoreceptor cells. A ciliary transition zone called 'photoreceptor connecting cilium' links the photoreceptor outer segment to the inner segment." ],
+      "annotation" : {
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2016-09-30T10:50:11Z" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "id" : [ "GO:0097733" ]
+      },
+      "synonyms" : [ "photoreceptor cilium" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0097733",
+      "obo_id" : "GO:0097733",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A specialised 9+0 non-motile cilium found in photoreceptor cells. A ciliary transition zone called 'photoreceptor connecting cilium' links the photoreceptor outer segment to the inner segment.",
+        "oboXrefs" : [ {
+          "database" : "GOC",
+          "id" : "cilia",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : null,
+          "id" : "http://en.wikipedia.org/wiki/Photoreceptor_cell#Histology",
+          "description" : null,
+          "url" : "http://en.wikipedia.org/wiki/Photoreceptor_cell#Histology"
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097733"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097733/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097733/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097733/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097733/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097733/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097733/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097733/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097733/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097733/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097733/graph"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097732",
+      "label" : "GO_0097732",
+      "description" : [ "A non-motile cilium where the axoneme has a ring of nine outer microtubule doublets plus two central microtubules (and is therefore called a 9+2 axoneme)." ],
+      "annotation" : {
+        "comment" : [ "This type of cilia may be present in solitary (e.g. in inner hair cells) or in multiple copies (e.g. in olfactory neurons)." ],
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2016-09-29T14:07:33Z" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "hasRelatedSynonym" : [ "9+2 immotile cilium" ],
+        "id" : [ "GO:0097732" ]
+      },
+      "synonyms" : [ "non-motile 9+2 cilium" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0097732",
+      "obo_id" : "GO:0097732",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A non-motile cilium where the axoneme has a ring of nine outer microtubule doublets plus two central microtubules (and is therefore called a 9+2 axoneme).",
+        "oboXrefs" : [ {
+          "database" : "PMID",
+          "id" : "21307074",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/21307074"
+        }, {
+          "database" : "GOC",
+          "id" : "cilia",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "PMID",
+          "id" : "22118931",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/22118931"
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097732"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097732/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097732/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097732/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097732/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097732/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097732/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097732/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097732/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097732/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097732/graph"
+        },
+        "BFO_0000051" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097732/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FBFO_0000051"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0060091",
+      "label" : "GO_0060091",
+      "description" : [ "A nonmotile primary cilium that is found at the apical surface of auditory receptor cells. The kinocilium is surrounded by actin-based stereocilia." ],
+      "annotation" : {
+        "hasDbXref" : [ "Wikipedia:Kinocilium" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "id" : [ "GO:0060091" ]
+      },
+      "synonyms" : null,
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0060091",
+      "obo_id" : "GO:0060091",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A nonmotile primary cilium that is found at the apical surface of auditory receptor cells. The kinocilium is surrounded by actin-based stereocilia.",
+        "oboXrefs" : [ {
+          "database" : "GOC",
+          "id" : "cilia",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "PMID",
+          "id" : "15882574",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/15882574"
+        }, {
+          "database" : "GOC",
+          "id" : "dph",
+          "description" : null,
+          "url" : null
+        } ]
+      } ],
+      "obo_xref" : [ {
+        "database" : "Wikipedia",
+        "id" : "Kinocilium",
+        "description" : null,
+        "url" : "http://en.wikipedia.org/wiki/Kinocilium"
+      } ],
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0060091"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0060091/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0060091/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0060091/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0060091/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0060091/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0060091/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0060091/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0060091/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0060091/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0060091/graph"
+        },
+        "BFO_0000050" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0060091/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FBFO_0000050"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0031514",
+      "label" : "GO_0031514",
+      "description" : [ "A cilium which may have a variable arrangement of axonemal microtubules and also contains molecular motors. It may beat with a whip-like pattern that promotes cell motility or transport of fluids and other cells across a cell surface, such as on epithelial cells that line the lumenal ducts of various tissues; or they may display a distinct twirling motion that directs fluid flow asymmetrically across the cellular surface to affect asymmetric body plan organization. Motile cilia can be found in single as well as multiple copies per cell." ],
+      "annotation" : {
+        "hasAlternativeId" : [ "GO:0009434", "GO:0031512" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "hasRelatedSynonym" : [ "nodal cilium", "motile primary cilia", "microtubule-based flagellum", "motile primary cilium", "motile secondary cilium" ],
+        "id" : [ "GO:0031514" ]
+      },
+      "synonyms" : [ "motile cilia" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0031514",
+      "obo_id" : "GO:0031514",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A cilium which may have a variable arrangement of axonemal microtubules and also contains molecular motors. It may beat with a whip-like pattern that promotes cell motility or transport of fluids and other cells across a cell surface, such as on epithelial cells that line the lumenal ducts of various tissues; or they may display a distinct twirling motion that directs fluid flow asymmetrically across the cellular surface to affect asymmetric body plan organization. Motile cilia can be found in single as well as multiple copies per cell.",
+        "oboXrefs" : [ {
+          "database" : "PMID",
+          "id" : "20144998",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/20144998"
+        }, {
+          "database" : "GOC",
+          "id" : "cilia",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "PMID",
+          "id" : "17009929",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/17009929"
+        }, {
+          "database" : "PMID",
+          "id" : "22118931",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/22118931"
+        }, {
+          "database" : "GOC",
+          "id" : "dgh",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "GOC",
+          "id" : "kmv",
+          "description" : null,
+          "url" : null
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : [ {
+        "name" : "nodal cilium",
+        "scope" : "hasRelatedSynonym",
+        "type" : null,
+        "xrefs" : [ {
+          "database" : "GOC",
+          "id" : "curators",
+          "description" : null,
+          "url" : null
+        } ]
+      }, {
+        "name" : "motile primary cilia",
+        "scope" : "hasRelatedSynonym",
+        "type" : null,
+        "xrefs" : [ {
+          "database" : "GOC",
+          "id" : "curators",
+          "description" : null,
+          "url" : null
+        } ]
+      }, {
+        "name" : "motile secondary cilium",
+        "scope" : "hasRelatedSynonym",
+        "type" : null,
+        "xrefs" : [ {
+          "database" : "GOC",
+          "id" : "curators",
+          "description" : null,
+          "url" : null
+        } ]
+      }, {
+        "name" : "motile cilia",
+        "scope" : "hasExactSynonym",
+        "type" : null,
+        "xrefs" : [ {
+          "database" : "GOC",
+          "id" : "curators",
+          "description" : null,
+          "url" : null
+        } ]
+      } ],
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0031514"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0031514/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0031514/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0031514/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0031514/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0031514/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0031514/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0031514/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0031514/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0031514/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0031514/graph"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097728",
+      "label" : "GO_0097728",
+      "description" : [ "A motile cilium where the axoneme has a ring of nine outer microtubule doublets but no central microtubules (and is therefore called a 9+0 axoneme)." ],
+      "annotation" : {
+        "comment" : [ "This type of cilia may be present in solitary (classic nodal cilia in embryonic nodes) or in multiple copies (e.g. in the choroid plexus epithelium)." ],
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2016-09-27T15:24:37Z" ],
+        "hasNarrowSynonym" : [ "nodal cilium" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "id" : [ "GO:0097728" ]
+      },
+      "synonyms" : [ "motile 9+0 cilium" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : false,
+      "is_root" : false,
+      "short_form" : "GO_0097728",
+      "obo_id" : "GO:0097728",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A motile cilium where the axoneme has a ring of nine outer microtubule doublets but no central microtubules (and is therefore called a 9+0 axoneme).",
+        "oboXrefs" : [ {
+          "database" : "PMID",
+          "id" : "22118931",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/22118931"
+        }, {
+          "database" : "GOC",
+          "id" : "cilia",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "PMID",
+          "id" : "10330409",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/10330409"
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097728"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097728/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097728/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097728/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097728/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097728/jstree"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097728/graph"
+        },
+        "BFO_0000051" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097728/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FBFO_0000051"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097729",
+      "label" : "GO_0097729",
+      "description" : [ "A motile cilium where the axoneme has a ring of nine outer microtubule doublets plus two central microtubules (and is therefore called a 9+2 axoneme)." ],
+      "annotation" : {
+        "comment" : [ "This type of cilia may be present in solitary (so-called flagella, e.g. in sperm) or in multiple copies (so-called conventional motile cilia, e.g. in tracheal epithelium, ependyma or oviduct epithelium)." ],
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2016-09-27T15:26:34Z" ],
+        "hasNarrowSynonym" : [ "conventional motile cilium", "sperm flagellum" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "id" : [ "GO:0097729" ]
+      },
+      "synonyms" : [ "motile 9+2 cilium" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0097729",
+      "obo_id" : "GO:0097729",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A motile cilium where the axoneme has a ring of nine outer microtubule doublets plus two central microtubules (and is therefore called a 9+2 axoneme).",
+        "oboXrefs" : [ {
+          "database" : "PMID",
+          "id" : "22118931",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/22118931"
+        }, {
+          "database" : "GOC",
+          "id" : "cilia",
+          "description" : null,
+          "url" : null
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097729"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097729/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097729/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097729/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097729/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097729/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097729/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097729/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097729/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097729/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097729/graph"
+        },
+        "BFO_0000051" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097729/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FBFO_0000051"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097608",
+      "label" : "GO_0097608",
+      "description" : [ "A motile cilium found in dinoflagellates. It coils around the cell and provides the forward thrust for motility. It is often contained in a furrow called the cingulum, and emerges from a flagellar pore located in the cingulum." ],
+      "annotation" : {
+        "comment" : [ "Note that we deem cilium and microtubule-based flagellum to be equivalent. In this case community usage refers to 'flagellum' rather than 'cilium', hence the primary term name, but the cilium parentage is deliberate." ],
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2014-06-09T11:14:37Z" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "id" : [ "GO:0097608" ]
+      },
+      "synonyms" : [ "transverse cilium" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : false,
+      "is_root" : false,
+      "short_form" : "GO_0097608",
+      "obo_id" : "GO:0097608",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A motile cilium found in dinoflagellates. It coils around the cell and provides the forward thrust for motility. It is often contained in a furrow called the cingulum, and emerges from a flagellar pore located in the cingulum.",
+        "oboXrefs" : [ {
+          "database" : null,
+          "id" : "http://www.sms.si.edu/irlspec/Phyl_Dinofl_Glossary.htm",
+          "description" : null,
+          "url" : "http://www.sms.si.edu/irlspec/Phyl_Dinofl_Glossary.htm"
+        }, {
+          "database" : "GOC",
+          "id" : "at",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : null,
+          "id" : "http://en.wikipedia.org/wiki/Dinoflagellate#Morphology",
+          "description" : null,
+          "url" : "http://en.wikipedia.org/wiki/Dinoflagellate#Morphology"
+        }, {
+          "database" : null,
+          "id" : "http://tolweb.org/Dinoflagellates/2445",
+          "description" : null,
+          "url" : "http://tolweb.org/Dinoflagellates/2445"
+        }, {
+          "database" : "ISBN",
+          "id" : "0632009152",
+          "description" : null,
+          "url" : "https://www.worldcat.org/search?q=bn%3A0632009152"
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097608"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097608/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097608/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097608/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097608/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097608/jstree"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097608/graph"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097609",
+      "label" : "GO_0097609",
+      "description" : [ "A motile cilium found in dinoflagellates. It trails the cell and acts as a steering rudder. It is often partially contained in a furrow called the sulcus, and emerges from a flagellar pore located in the sulcus." ],
+      "annotation" : {
+        "comment" : [ "Note that we deem cilium and microtubule-based flagellum to be equivalent. In this case community usage refers to 'flagellum' rather than 'cilium', hence the primary term name, but the cilium parentage is deliberate." ],
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2014-06-09T11:21:10Z" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "id" : [ "GO:0097609" ]
+      },
+      "synonyms" : [ "longitudinal cilium" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : false,
+      "is_root" : false,
+      "short_form" : "GO_0097609",
+      "obo_id" : "GO:0097609",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A motile cilium found in dinoflagellates. It trails the cell and acts as a steering rudder. It is often partially contained in a furrow called the sulcus, and emerges from a flagellar pore located in the sulcus.",
+        "oboXrefs" : [ {
+          "database" : null,
+          "id" : "http://tolweb.org/Dinoflagellates/2445",
+          "description" : null,
+          "url" : "http://tolweb.org/Dinoflagellates/2445"
+        }, {
+          "database" : null,
+          "id" : "http://en.wikipedia.org/wiki/Dinoflagellate#Morphology",
+          "description" : null,
+          "url" : "http://en.wikipedia.org/wiki/Dinoflagellate#Morphology"
+        }, {
+          "database" : null,
+          "id" : "http://www.sms.si.edu/irlspec/Phyl_Dinofl_Glossary.htm",
+          "description" : null,
+          "url" : "http://www.sms.si.edu/irlspec/Phyl_Dinofl_Glossary.htm"
+        }, {
+          "database" : "GOC",
+          "id" : "at",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "ISBN",
+          "id" : "0632009152",
+          "description" : null,
+          "url" : "https://www.worldcat.org/search?q=bn%3A0632009152"
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097609"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097609/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097609/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097609/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097609/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097609/jstree"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097609/graph"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097554",
+      "label" : "GO_0097554",
+      "description" : [ "A cilium (also called flagellum) found in Giardia species (trophozoite stage). It originates at the left anterior basal body, extends laterally through the cytoplasm, crosses the right anterior axoneme, and exits as a membrane-bound flagellum on the anterior left side of the cell." ],
+      "annotation" : {
+        "comment" : [ "Note that we deem cilium and microtubule-based flagellum to be equivalent; the primary term name reflects frequency of use. Also note that, due to the asymmetric nature of the Giardia trophozoite, this term is defined spatially as the trophozoite is viewed from the dorsal side, with the two nuclei dorsal to the ventral disc, and the ventral disc toward the anterior." ],
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2014-02-05T12:47:41Z" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "id" : [ "GO:0097554" ]
+      },
+      "synonyms" : [ "left anterior cilium" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0097554",
+      "obo_id" : "GO:0097554",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A cilium (also called flagellum) found in Giardia species (trophozoite stage). It originates at the left anterior basal body, extends laterally through the cytoplasm, crosses the right anterior axoneme, and exits as a membrane-bound flagellum on the anterior left side of the cell.",
+        "oboXrefs" : [ {
+          "database" : "PMID",
+          "id" : "5961344",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/5961344"
+        }, {
+          "database" : "GOC",
+          "id" : "giardia",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "ISBN",
+          "id" : "9780124260207",
+          "description" : null,
+          "url" : "https://www.worldcat.org/search?q=bn%3A9780124260207"
+        }, {
+          "database" : "PMID",
+          "id" : "16607022",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/16607022"
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097554"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097554/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097554/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097554/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097554/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097554/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097554/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097554/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097554/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097554/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097554/graph"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097555",
+      "label" : "GO_0097555",
+      "description" : [ "A cilium (also called flagellum) found in Giardia species (trophozoite stage). It originates at the right anterior basal body, extends laterally through the cytoplasm, crosses the left anterior axoneme, and exits as a membrane-bound flagellum on the anterior right side of the cell." ],
+      "annotation" : {
+        "comment" : [ "Note that we deem cilium and microtubule-based flagellum to be equivalent; the primary term name reflects frequency of use. Also note that, due to the asymmetric nature of the Giardia trophozoite, this term is defined spatially as the trophozoite is viewed from the dorsal side, with the two nuclei dorsal to the ventral disc, and the ventral disc toward the anterior." ],
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2014-02-05T13:18:36Z" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "id" : [ "GO:0097555" ]
+      },
+      "synonyms" : [ "right anterior cilium" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0097555",
+      "obo_id" : "GO:0097555",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A cilium (also called flagellum) found in Giardia species (trophozoite stage). It originates at the right anterior basal body, extends laterally through the cytoplasm, crosses the left anterior axoneme, and exits as a membrane-bound flagellum on the anterior right side of the cell.",
+        "oboXrefs" : [ {
+          "database" : "PMID",
+          "id" : "16607022",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/16607022"
+        }, {
+          "database" : "GOC",
+          "id" : "giardia",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "PMID",
+          "id" : "5961344",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/5961344"
+        }, {
+          "database" : "ISBN",
+          "id" : "9780124260207",
+          "description" : null,
+          "url" : "https://www.worldcat.org/search?q=bn%3A9780124260207"
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097555"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097555/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097555/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097555/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097555/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097555/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097555/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097555/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097555/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097555/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097555/graph"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097556",
+      "label" : "GO_0097556",
+      "description" : [ "A cilium (also called flagellum) found in Giardia species (trophozoite stage). It is nucleated by the left posteriolateral basal body and extends cytoplasmically toward the cell posterior, marking the left anterior boundary of the lateral shield and the left lateral region of the funis before exiting at the left lateral region of the cell body." ],
+      "annotation" : {
+        "comment" : [ "Note that we deem cilium and microtubule-based flagellum to be equivalent; the primary term name reflects frequency of use. Also note that, due to the asymmetric nature of the Giardia trophozoite, this term is defined spatially as the trophozoite is viewed from the dorsal side, with the two nuclei dorsal to the ventral disc, and the ventral disc toward the anterior." ],
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2014-02-05T13:21:09Z" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "id" : [ "GO:0097556" ]
+      },
+      "synonyms" : [ "left posteriolateral cilium", "left posterolateral flagellum", "left posterolateral cilium" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0097556",
+      "obo_id" : "GO:0097556",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A cilium (also called flagellum) found in Giardia species (trophozoite stage). It is nucleated by the left posteriolateral basal body and extends cytoplasmically toward the cell posterior, marking the left anterior boundary of the lateral shield and the left lateral region of the funis before exiting at the left lateral region of the cell body.",
+        "oboXrefs" : [ {
+          "database" : "ISBN",
+          "id" : "9780124260207",
+          "description" : null,
+          "url" : "https://www.worldcat.org/search?q=bn%3A9780124260207"
+        }, {
+          "database" : "PMID",
+          "id" : "16607022",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/16607022"
+        }, {
+          "database" : "PMID",
+          "id" : "5961344",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/5961344"
+        }, {
+          "database" : "GOC",
+          "id" : "giardia",
+          "description" : null,
+          "url" : null
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097556"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097556/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097556/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097556/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097556/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097556/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097556/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097556/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097556/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097556/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097556/graph"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097557",
+      "label" : "GO_0097557",
+      "description" : [ "A cilium (also called flagellum) found in Giardia species (trophozoite stage). It is nucleated by the right posteriolateral basal body and extends cytoplasmically toward the cell posterior, marking the right anterior boundary of the lateral shield and the right lateral region of the funis before exiting at the right lateral region of the cell body." ],
+      "annotation" : {
+        "comment" : [ "Note that we deem cilium and microtubule-based flagellum to be equivalent; the primary term name reflects frequency of use. Also note that, due to the asymmetric nature of the Giardia trophozoite, this term is defined spatially as the trophozoite is viewed from the dorsal side, with the two nuclei dorsal to the ventral disc, and the ventral disc toward the anterior." ],
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2014-02-05T13:24:55Z" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "id" : [ "GO:0097557" ]
+      },
+      "synonyms" : [ "right posterolateral flagellum", "right posterolateral cilium", "right posteriolateral cilium" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0097557",
+      "obo_id" : "GO:0097557",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A cilium (also called flagellum) found in Giardia species (trophozoite stage). It is nucleated by the right posteriolateral basal body and extends cytoplasmically toward the cell posterior, marking the right anterior boundary of the lateral shield and the right lateral region of the funis before exiting at the right lateral region of the cell body.",
+        "oboXrefs" : [ {
+          "database" : "GOC",
+          "id" : "giardia",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "ISBN",
+          "id" : "9780124260207",
+          "description" : null,
+          "url" : "https://www.worldcat.org/search?q=bn%3A9780124260207"
+        }, {
+          "database" : "PMID",
+          "id" : "16607022",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/16607022"
+        }, {
+          "database" : "PMID",
+          "id" : "5961344",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/5961344"
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097557"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097557/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097557/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097557/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097557/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097557/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097557/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097557/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097557/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097557/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097557/graph"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097558",
+      "label" : "GO_0097558",
+      "description" : [ "A cilium (also called flagellum) found in Giardia species (trophozoite stage). It is nucleated by the left ventral basal body and exits the cell body proximally and dorsal to the ventral disc." ],
+      "annotation" : {
+        "comment" : [ "Note that we deem cilium and microtubule-based flagellum to be equivalent; the primary term name reflects frequency of use. Also note that, due to the asymmetric nature of the Giardia trophozoite, this term is defined spatially as the trophozoite is viewed from the dorsal side, with the two nuclei dorsal to the ventral disc, and the ventral disc toward the anterior." ],
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2014-02-05T13:26:51Z" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "id" : [ "GO:0097558" ]
+      },
+      "synonyms" : [ "left ventral cilium" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0097558",
+      "obo_id" : "GO:0097558",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A cilium (also called flagellum) found in Giardia species (trophozoite stage). It is nucleated by the left ventral basal body and exits the cell body proximally and dorsal to the ventral disc.",
+        "oboXrefs" : [ {
+          "database" : "PMID",
+          "id" : "5961344",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/5961344"
+        }, {
+          "database" : "GOC",
+          "id" : "giardia",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "PMID",
+          "id" : "16607022",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/16607022"
+        }, {
+          "database" : "ISBN",
+          "id" : "9780124260207",
+          "description" : null,
+          "url" : "https://www.worldcat.org/search?q=bn%3A9780124260207"
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097558"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097558/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097558/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097558/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097558/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097558/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097558/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097558/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097558/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097558/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097558/graph"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097559",
+      "label" : "GO_0097559",
+      "description" : [ "A cilium (also called flagellum) found in Giardia species (trophozoite stage). It is nucleated by the right ventral basal body and exits the cell body proximally and dorsal to the ventral disc." ],
+      "annotation" : {
+        "comment" : [ "Note that we deem cilium and microtubule-based flagellum to be equivalent; the primary term name reflects frequency of use. Also note that, due to the asymmetric nature of the Giardia trophozoite, this term is defined spatially as the trophozoite is viewed from the dorsal side, with the two nuclei dorsal to the ventral disc, and the ventral disc toward the anterior." ],
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2014-02-05T13:28:20Z" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "id" : [ "GO:0097559" ]
+      },
+      "synonyms" : [ "right ventral cilium" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0097559",
+      "obo_id" : "GO:0097559",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A cilium (also called flagellum) found in Giardia species (trophozoite stage). It is nucleated by the right ventral basal body and exits the cell body proximally and dorsal to the ventral disc.",
+        "oboXrefs" : [ {
+          "database" : "GOC",
+          "id" : "giardia",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "PMID",
+          "id" : "16607022",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/16607022"
+        }, {
+          "database" : "ISBN",
+          "id" : "9780124260207",
+          "description" : null,
+          "url" : "https://www.worldcat.org/search?q=bn%3A9780124260207"
+        }, {
+          "database" : "PMID",
+          "id" : "5961344",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/5961344"
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097559"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097559/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097559/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097559/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097559/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097559/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097559/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097559/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097559/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097559/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097559/graph"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097560",
+      "label" : "GO_0097560",
+      "description" : [ "A cilium (also called flagellum) found in Giardia species (trophozoite stage). It is nucleated by the left caudal basal body, extending cytoplasmically and exiting at the posterior end of the cell body." ],
+      "annotation" : {
+        "comment" : [ "Note that we deem cilium and microtubule-based flagellum to be equivalent; the primary term name reflects frequency of use. Also note that, due to the asymmetric nature of the Giardia trophozoite, this term is defined spatially as the trophozoite is viewed from the dorsal side, with the two nuclei dorsal to the ventral disc, and the ventral disc toward the anterior." ],
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2014-02-05T13:29:44Z" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "id" : [ "GO:0097560" ]
+      },
+      "synonyms" : [ "left caudal cilium" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0097560",
+      "obo_id" : "GO:0097560",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A cilium (also called flagellum) found in Giardia species (trophozoite stage). It is nucleated by the left caudal basal body, extending cytoplasmically and exiting at the posterior end of the cell body.",
+        "oboXrefs" : [ {
+          "database" : "ISBN",
+          "id" : "9780124260207",
+          "description" : null,
+          "url" : "https://www.worldcat.org/search?q=bn%3A9780124260207"
+        }, {
+          "database" : "GOC",
+          "id" : "giardia",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "PMID",
+          "id" : "16607022",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/16607022"
+        }, {
+          "database" : "PMID",
+          "id" : "5961344",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/5961344"
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097560"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097560/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097560/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097560/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097560/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097560/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097560/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097560/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097560/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097560/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097560/graph"
+        }
+      }
+    }, {
+      "iri" : "http://purl.obolibrary.org/obo/GO_0097561",
+      "label" : "GO_0097561",
+      "description" : [ "A cilium (also called flagellum) found in Giardia species (trophozoite stage). It is nucleated by the right caudal basal body, extending cytoplasmically and exiting at the posterior end of the cell body." ],
+      "annotation" : {
+        "comment" : [ "Note that we deem cilium and microtubule-based flagellum to be equivalent; the primary term name reflects frequency of use. Also note that, due to the asymmetric nature of the Giardia trophozoite, this term is defined spatially as the trophozoite is viewed from the dorsal side, with the two nuclei dorsal to the ventral disc, and the ventral disc toward the anterior." ],
+        "created_by" : [ "paola" ],
+        "creation_date" : [ "2014-02-05T13:31:15Z" ],
+        "hasOBONamespace" : [ "cellular_component" ],
+        "id" : [ "GO:0097561" ]
+      },
+      "synonyms" : [ "right caudal cilium" ],
+      "ontology_name" : "go",
+      "ontology_prefix" : "GO",
+      "ontology_iri" : "http://purl.obolibrary.org/obo/go.owl",
+      "is_obsolete" : false,
+      "term_replaced_by" : null,
+      "is_defining_ontology" : true,
+      "has_children" : true,
+      "is_root" : false,
+      "short_form" : "GO_0097561",
+      "obo_id" : "GO:0097561",
+      "in_subset" : null,
+      "obo_definition_citation" : [ {
+        "definition" : "A cilium (also called flagellum) found in Giardia species (trophozoite stage). It is nucleated by the right caudal basal body, extending cytoplasmically and exiting at the posterior end of the cell body.",
+        "oboXrefs" : [ {
+          "database" : "PMID",
+          "id" : "16607022",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/16607022"
+        }, {
+          "database" : "PMID",
+          "id" : "5961344",
+          "description" : null,
+          "url" : "http://www.ncbi.nlm.nih.gov/pubmed/5961344"
+        }, {
+          "database" : "GOC",
+          "id" : "giardia",
+          "description" : null,
+          "url" : null
+        }, {
+          "database" : "ISBN",
+          "id" : "9780124260207",
+          "description" : null,
+          "url" : "https://www.worldcat.org/search?q=bn%3A9780124260207"
+        } ]
+      } ],
+      "obo_xref" : null,
+      "obo_synonym" : null,
+      "_links" : {
+        "self" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097561"
+        },
+        "parents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097561/parents"
+        },
+        "ancestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097561/ancestors"
+        },
+        "hierarchicalParents" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097561/hierarchicalParents"
+        },
+        "hierarchicalAncestors" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097561/hierarchicalAncestors"
+        },
+        "jstree" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097561/jstree"
+        },
+        "children" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097561/children"
+        },
+        "descendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097561/descendants"
+        },
+        "hierarchicalChildren" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097561/hierarchicalChildren"
+        },
+        "hierarchicalDescendants" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097561/hierarchicalDescendants"
+        },
+        "graph" : {
+          "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FGO_0097561/graph"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "first" : {
+      "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/descendants?id=GO:0043226&page=0&size=20"
+    },
+    "self" : {
+      "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/descendants?id=GO:0043226"
+    },
+    "next" : {
+      "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/descendants?id=GO:0043226&page=1&size=20"
+    },
+    "last" : {
+      "href" : "http://www.ebi.ac.uk/ols/api/ontologies/go/descendants?id=GO:0043226&page=19&size=20"
+    }
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 385,
+    "totalPages" : 20,
+    "number" : 0
+  }
+}
+----

@@ -1,5 +1,16 @@
 package uk.ac.ebi.spot.ols.controller.ui;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @author Simon Jupp
  * @date 08/07/2015
@@ -12,24 +23,21 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
-import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
+
 import uk.ac.ebi.spot.ols.model.OntologyDocument;
 import uk.ac.ebi.spot.ols.service.OntologyRepositoryService;
 import uk.ac.ebi.spot.ols.util.OLSEnv;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.text.SimpleDateFormat;
-import java.util.*;
 
 @Controller
 @RequestMapping("")
@@ -41,13 +49,14 @@ public class HomeController {
     @Autowired
     Environment environment;
 
+    @Autowired
+    private CustomisationProperties customisationProperties;
+
     @Value("${ols.maintenance.start:#{null}}")
     String start = null;
 
-
     @Value("${ols.maintenance.end:#{null}}")
     String end = null;
-
 
     @Value("${ols.maintenance.message:#{null}}")
     String message;
@@ -55,8 +64,7 @@ public class HomeController {
     // Reading these from application.properties
     @Value("${ols.sitemap.folder:}")
     private String sitemapFolder;
-
-
+    
     @ModelAttribute("all_ontologies")
     public List<OntologyDocument> getOntologies() {
         try {
@@ -70,7 +78,7 @@ public class HomeController {
     public String goHome () {
         return "redirect:index";
     }
-    //
+
     @RequestMapping({"/index"})
     public String showHome(Model model) {
 
@@ -89,9 +97,12 @@ public class HomeController {
                 model.addAttribute("message", message);
             }
         } catch (Exception e) {
-            // couldn't determine if we are in maintenance mode..
+            // couldn't determine whether we are in maintenance mode..
         }
         model.addAttribute("summary", summaryInfo);
+
+        customisationProperties.setCustomisationModelAttributes(model);
+
         return "index";
     }
 
@@ -145,7 +156,7 @@ public class HomeController {
             @RequestParam(value = "q", defaultValue = "*") String query,
             @RequestParam(value = "ontology", required = false) Collection<String> ontologies,
             @RequestParam(value = "type", required = false) Collection<String> types,
-            @RequestParam(value= "slim", required = false) Collection<String> slims,
+            @RequestParam(value = "slim", required = false) Collection<String> slims,
             @RequestParam(value = "queryFields", required = false) Collection<String> queryFields,
             @RequestParam(value = "exact", required = false) boolean exact,
             @RequestParam(value = "groupField", required = false) String groupField,
@@ -189,9 +200,9 @@ public class HomeController {
 
 
         model.addAttribute("searchOptions", searchOptions);
+        customisationProperties.setCustomisationModelAttributes(model);
         return "search";
     }
-
 
     @RequestMapping({"contact"})
     public String showContact() {
@@ -210,6 +221,7 @@ public class HomeController {
         model.addAttribute("start", start);
         model.addAttribute("end", end);
         model.addAttribute("message", message);
+        customisationProperties.setCustomisationModelAttributes(model);
         return "maintenance";
     }
 
@@ -217,6 +229,7 @@ public class HomeController {
     public String showSparql() {
         return "comingsoon";
     }
+
     @RequestMapping({"about"})
     public String showAbout() {
         return "redirect:docs/about";
@@ -226,14 +239,22 @@ public class HomeController {
     public String showDocsIndex(Model model) {
         return "redirect:docs/index";
     }
+
     // ok, this is bad, need to find a way to deal with trailing slashes and constructing relative URLs in the thymeleaf template...
     @RequestMapping({"docs/"})
     public String showDocsIndex2(Model model) {
         return "redirect:index";
     }
+
     @RequestMapping({"docs/{page}"})
     public String showDocs(@PathVariable("page") String pageName, Model model) {
+
+        if(customisationProperties.getDebrand()) {
+            return "redirect:../index";
+        }
+
         model.addAttribute("page", pageName);
+        customisationProperties.setCustomisationModelAttributes(model);
         return "docs-template";
     }
 
@@ -355,6 +376,4 @@ public class HomeController {
             this.softwareVersion = softwareVersion;
         }
     }
-
-
 }

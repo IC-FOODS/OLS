@@ -1,11 +1,13 @@
 package uk.ac.ebi.spot.ols.util;
 
+import org.semanticweb.elk.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.util.FileSystemUtils;
 import sun.net.www.protocol.ftp.FtpURLConnection;
 import uk.ac.ebi.spot.ols.exception.FileUpdateServiceException;
 
@@ -13,10 +15,13 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.file.FileSystem;
 import java.nio.file.Files;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.zip.GZIPInputStream;
+import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 /**
@@ -115,23 +120,19 @@ public class FileUpdater {
 
                 // create one for the downloaded file
 
-                // if they are the same, the file hasn't changed
-                if (latestChecksum.equals(downloadChecksum)) {
-                    return new FileStatus(latestFile, false);
-                }
-                else {
+                // if they are different, the file has changed
+                if (!latestChecksum.equals(downloadChecksum)) {
                     // if they are different, copy the downloaded file to the latest file
                     FileCopyUtils.copy(downloadFile, latestFile );
                     // update the latest file checksum
                     writeChecksum(latestFileChecksum, downloadChecksum);
-                    return new FileStatus(latestFile, true);
                 }
             }
             else {
                 FileCopyUtils.copy(downloadFile, latestFile );
                 writeChecksum(latestFileChecksum, downloadChecksum);
-                return new FileStatus(latestFile, true);
             }
+            return new FileStatus(latestFile, downloadChecksum);
 
         } catch (Exception e) {
             throw new FileUpdateServiceException("Failed to download file: " + e.getMessage(), e);
@@ -153,6 +154,29 @@ public class FileUpdater {
     }
 
     private InputStream getFileInputStream(URL url) throws IOException {
+
+        File pathFile = new File(url.getPath());
+
+        if (Files.exists(pathFile.toPath())) {
+            FileInputStream fis= new FileInputStream(pathFile);
+            if (pathFile.getName().endsWith(".gz")) {
+                return new GZIPInputStream(fis);
+            }
+            else if (pathFile.getName().endsWith(".zip")) {
+                ZipInputStream zis = new ZipInputStream(fis);
+                if ( (zis.getNextEntry()) != null) {
+                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                    IOUtils.copy(zis, outputStream);
+                    return new ByteArrayInputStream(outputStream.toByteArray());
+                }
+            }
+            else {
+                return new FileInputStream(pathFile);
+            }
+        }
+
+        // try a http connection
+
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setConnectTimeout(15000);
         connection.setReadTimeout(60000);
@@ -169,49 +193,33 @@ public class FileUpdater {
                     || status == HttpURLConnection.HTTP_SEE_OTHER)
                 redirect = true;
         }
-
-        InputStream is = null;
-
+        
         if (redirect) {
-       		// get redirect url from "location" header field
-       		String newUrl = connection.getHeaderField("Location");
-       		// open the new connnection again
+            // get redirect url from "location" header field
+            String newUrl = connection.getHeaderField("Location");
+            // open the new connnection again
 
             try {
                 connection = (HttpURLConnection) new URL(newUrl).openConnection();
-                is = connection.getInputStream();
+                connection.setInstanceFollowRedirects(true);
             } catch (Exception e) {
                 FtpURLConnection ftpURLConnection = (FtpURLConnection) new URL(newUrl).openConnection();
-                is = ftpURLConnection.getInputStream();
+                return ftpURLConnection.getInputStream();
             }
-       	}
+        }
 
-
-//        return connection.getInputStream() ;
-        if ("application/zip".equals(connection.getContentType())) {
-            final int BUFFER = 2048;
-            int count = 0;
-            byte data[] = new byte[BUFFER];
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
+        if (pathFile.getName().endsWith(".zip")) {
             ZipInputStream zis = new ZipInputStream(connection.getInputStream());
-            if (zis.getNextEntry() != null) {
-                while ((count = zis.read(data, 0, BUFFER)) != -1) {
-                    out.write(data);
-                }
-                is = new ByteArrayInputStream(out.toByteArray());
+            if ( (zis.getNextEntry()) != null) {
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                IOUtils.copy(zis, outputStream);
+                return new ByteArrayInputStream(outputStream.toByteArray());
             }
         }
-        else if (is == null){
-            is = connection.getInputStream();
+        else if (pathFile.getName().endsWith(".gz")) {
+            return new GZIPInputStream(connection.getInputStream());
         }
-//        else if ("application/gzip".equals(connection.getContentType())) {
-//            is = new GZIPInputStream(connection.getInputStream());
-//
-//        }
-//        else {
-//            is = connection.getInputStream();
-//        }
-        return is;
+        return connection.getInputStream();
     }
 
     private String readChecksum (File fileCheck) throws IOException {
@@ -228,20 +236,19 @@ public class FileUpdater {
 
     public class FileStatus {
         private File file;
-        private boolean isNew;
+        private String latestHash;
 
-
-        public FileStatus(File latestFile, boolean b) {
+        public FileStatus(File latestFile, String latestHash) {
             this.file = latestFile;
-            this.isNew = b;
+            this.latestHash = latestHash;
         }
 
         public File getFile() {
             return file;
         }
 
-        public boolean isNew() {
-            return isNew;
+        public String getLatestHash() {
+            return latestHash;
         }
     }
 

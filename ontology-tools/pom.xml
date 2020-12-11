@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>uk.ac.ebi.spot</groupId>
         <artifactId>ols-parent</artifactId>
-        <version>3.1.1-SNAPSHOT</version>
+        <version>3.2.1-SNAPSHOT</version>
         <relativePath>../ols-parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -13,6 +11,10 @@
     <artifactId>ontology-tools</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>uk.ac.ebi.spot</groupId>
+            <artifactId>resource-usage</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -23,15 +25,13 @@
             <groupId>net.sourceforge.owlapi</groupId>
             <artifactId>owlapi-distribution</artifactId>
         </dependency>
-
         <dependency>
-            <groupId>com.hermit-reasoner</groupId>
+            <groupId>net.sourceforge.owlapi</groupId>
             <artifactId>org.semanticweb.hermit</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.semanticweb.elk</groupId>
-            <artifactId>elk-owlapi</artifactId>
+            <artifactId>elk-owlapi5</artifactId>
         </dependency>
 
         <dependency>
@@ -58,21 +58,29 @@
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
-            <version>1.15</version>
         </dependency>
 
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
+         <dependency>
+             <groupId>org.junit.jupiter</groupId>
+             <artifactId>junit-jupiter-engine</artifactId>
+             <scope>test</scope>
+         </dependency>
 
+         <dependency>
+             <groupId>org.junit.jupiter</groupId>
+             <artifactId>junit-jupiter-params</artifactId>
+             <scope>test</scope>
+         </dependency>
+
+         <dependency>
+             <groupId>org.junit.jupiter</groupId>
+             <artifactId>junit-jupiter-api</artifactId>
+             <scope>test</scope>
+         </dependency>
+                  
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>1.10.19</version>
         </dependency>
     </dependencies>
-
 </project>
